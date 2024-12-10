@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Tour Perpustakaan</title>
+    <link rel="icon" href="../..//Foto.360/logo_Unimal-transformed.png" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="kanan.css" />
+  </head>
+  <body>
+    <a-scene>
+      <!-- Navbar -->
+      <div class="Navbar"><h1>Virtual Tour Perpustakaan</h1></div>
+      <!-- Menampilkan gambar 360 penuh -->
+      <a-sky id="sky" src="../../Foto.360/Bagian.Kanan/Bagian Kanan-1.jpeg" rotation="0 -90 0"></a-sky>
+    </a-scene>
+    <!-- Tombol untuk mengganti gambar -->
+    <button onclick="toggleSlide()" class="tombol-utama"><i data-feather="arrow-up"></i></button>
+    <button onclick="previousSlide()" class="tombol-kembali"><i data-feather="arrow-down"></i></button>
+    <button onclick="goToHomePage()" class="tombol-kembali2"><i data-feather="home"></i></button>
+
+    <script>
+      const slides = [
+        { type: 'image', src: '../../Foto.360/Bagian.Kanan/Bagian Kanan-1.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kanan/Bagian Kanan-2.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kanan/Bagian Kanan-7.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kanan/Bagian Kanan-10.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kanan/Bagian Kanan 14.jpeg' },
+        { type: 'html', src: '../Rute.Utama/Utama.html' },
+      ];
+
+      let currentSlideIndex = 0;
+
+      function toggleSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        navigateToSlide();
+      }
+
+      function previousSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        navigateToSlide();
+      }
+
+      function navigateToSlide() {
+        const currentSlide = slides[currentSlideIndex];
+        if (currentSlide.type === 'image') {
+          const sky = document.getElementById('sky');
+          sky.setAttribute('src', currentSlide.src);
+        } else if (currentSlide.type === 'html') {
+          window.location.href = currentSlide.src;
+        }
+      }
+
+      // function navigateToSlide() {
+      //   const currentSlide = slides[currentSlideIndex];
+      //   console.log(`Navigating to: ${currentSlide.src}`);
+      //   if (currentSlide.type === 'image') {
+      //     const sky = document.getElementById('sky');
+      //     sky.setAttribute('src', currentSlide.src);
+      //   } else if (currentSlide.type === 'html') {
+      //     window.location.href = currentSlide.src;
+      //   }
+      // }
+      function goToHomePage() {
+        window.location.href = '../Rute.Utama/utama.html';
+      }
+      // pusat icon
+      feather.replace();
+    </script>
+  </body>
+</html>

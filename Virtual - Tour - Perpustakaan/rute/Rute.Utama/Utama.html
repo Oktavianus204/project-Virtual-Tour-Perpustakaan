@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../Foto.360/logo_Unimal-transformed.png" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="Utama.css" />
+    <title>Virtual Tour Perpustakaan</title>
+  </head>
+  <body>
+    <a-scene>
+      <div class="Navbar"><h1>Virtual Tour Perpustakaan</h1></div>
+      <a-sky id="sky" src="../../Foto.360/Bagian Depan ADM.jpeg" rotation="0 -83 0"></a-sky>
+      <div class="dark-overlay"></div>
+    </a-scene>
+
+    <!-- Tombol Navigasi -->
+    <button onclick="goToLeftPage()" class="tombol-kiri">Bagian Kiri</button>
+    <button onclick="goToRightPage()" class="tombol-kanan">Bagian Kanan</button>
+    <button onclick="goToHomePage()" class="tombol-kembali2"><i data-feather="home"></i></button>
+
+    <script>
+      // Fungsi untuk mengarahkan ke halaman HTML bagian kiri
+      function goToLeftPage() {
+        window.location.href = '../Rute.Kiri/kiri.html';
+      }
+
+      // Fungsi untuk mengarahkan ke halaman HTML bagian kanan
+      function goToRightPage() {
+        window.location.href = '../Rute.Kanan/kanan.html';
+      }
+      // fungsi untuk mengarahkan kembali ke Halaman awal
+      function goToHomePage() {
+        window.location.href = '../../index.html';
+      }
+
+      // pusat icon
+      feather.replace();
+    </script>
+  </body>
+</html>

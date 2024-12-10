@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Tour Perpustakaan</title>
+    <link rel="icon" href="../../Foto.360/logo_Unimal-transformed.png" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="kiri.css" />
+  </head>
+  <body>
+    <a-scene>
+      <!-- Navbar -->
+      <div class="Navbar"><h1>Virtual Tour Perpustakaan</h1></div>
+      <!-- Menampilkan gambar 360 penuh -->
+      <a-sky id="sky" src="../../Foto.360/Bagian.Kiri/Bagian Kiri 2.jpeg" rotation="0 -120 0"></a-sky>
+    </a-scene>
+    <!-- Tombol untuk mengganti gambar -->
+    <button onclick="toggleSlide()" class="tombol-utama"><i data-feather="arrow-up"></i></button>
+    <button onclick="previousSlide()" class="tombol-kembali"><i data-feather="arrow-down"></i></button>
+    <button onclick="goToHomePage()" class="tombol-kembali2"><i data-feather="home"></i></button>
+    <script>
+      // Array dengan URL gambar dan file HTML
+      const slides = [
+        { type: 'image', src: '../../Foto.360/Bagian.Kiri/Bagian Kiri 2.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kiri/Bagian Kiri_3.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kiri/Bagian Kiri_5.jpeg' },
+        { type: 'image', src: '../../Foto.360/Bagian.Kiri/Ruang Audio_Visual.jpeg' },
+        { type: 'html', src: '../Rute.Utama/Utama.html' }, // Slide terakhir
+      ];
+
+      let currentSlideIndex = 0;
+
+      // Fungsi untuk mengganti slide secara bergantian
+      function toggleSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        navigateToSlide();
+      }
+
+      // Fungsi untuk kembali ke slide sebelumnya
+      function previousSlide() {
+        currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+        navigateToSlide();
+      }
+
+      // Kembali Ke halaman Utama
+      function goToHomePage() {
+        window.location.href = '../Rute.Utama/utama.html';
+      }
+
+      // Fungsi navigasi berdasarkan tipe slide
+      function navigateToSlide() {
+        const currentSlide = slides[currentSlideIndex];
+        if (currentSlide.type === 'image') {
+          const sky = document.getElementById('sky');
+          sky.setAttribute('src', currentSlide.src);
+        } else if (currentSlide.type === 'html') {
+          window.location.href = currentSlide.src;
+        }
+      }
+      // pusat icon
+      feather.replace();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Gambar {
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* Mengurangi kecerahan gambar */
+}
+
+.tombol-utama {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-40%, -40%);
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: antiquewhite;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tombol-utama .icon {
+  margin-right: 8px;
+  color: black;
+}
+
+.tombol-utama:hover {
+  margin-right: 8px;
+  background-color: rgb(80, 178, 90);
+}

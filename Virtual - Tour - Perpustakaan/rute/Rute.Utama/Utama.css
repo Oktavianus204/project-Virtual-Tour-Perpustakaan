@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #10250d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.Navbar h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tombol-kanan,
+.tombol-kiri,
+.tombol-kembali2 {
+  position: fixed;
+  bottom: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.tombol-kanan:hover,
+.tombol-kiri:hover,
+.tombol-kembali2:hover {
+  background-color: #0056b3;
+}
+
+.tombol-kiri {
+  left: 40%; /* Posisi kiri */
+  transform: translateX(-50%);
+}
+
+.tombol-kanan {
+  left: 55%; /* Posisi kanan utama */
+  transform: translateX(-50%);
+}
+
+.tombol-kembali2 {
+  left: 70%; /* Sebelah kanan tombol-kanan */
+  transform: translateX(-50%);
+}
